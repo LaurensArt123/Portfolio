@@ -3,12 +3,16 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { FiMenu, FiX } from 'react-icons/fi'
+import { getPhotographerAlbums } from './../sanity/lib/sanityUtils' // adjust this path if needed
+import { PhotographerAlbum } from '@/types/PhotographerAlbum'
 
 export default function Navbar() {
   const [showDropdown, setShowDropdown] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [hideNavbar, setHideNavbar] = useState(false)
+  const [albums, setAlbums] = useState<PhotographerAlbum[]>([])
 
+  // Hide on scroll
   useEffect(() => {
     let lastScrollY = window.scrollY
 
@@ -20,6 +24,15 @@ export default function Navbar() {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Fetch albums
+  useEffect(() => {
+    async function fetchAlbums() {
+      const data = await getPhotographerAlbums()
+      setAlbums(data)
+    }
+    fetchAlbums()
   }, [])
 
   // Close dropdown when clicking outside
@@ -70,24 +83,15 @@ export default function Navbar() {
               id="portfolio-menu-desktop"
               className="absolute top-full left-0 mt-3 w-48 bg-white rounded-xl border border-gray-200 shadow-xl z-10 py-2"
             >
-              <Link
-                href="/portfolio/project-a"
-                className="block px-5 py-2 text-sm text-left text-black hover:bg-gray-100 transition select-none"
-              >
-                Project A
-              </Link>
-              <Link
-                href="/portfolio/project-b"
-                className="block px-5 py-2 text-sm text-left text-black hover:bg-gray-100 transition select-none"
-              >
-                Project B
-              </Link>
-              <Link
-                href="/portfolio/project-c"
-                className="block px-5 py-2 text-sm text-left text-black hover:bg-gray-100 transition select-none"
-              >
-                Project C
-              </Link>
+              {albums.map((album) => (
+                <Link
+                  key={album._id}
+                  href={`/portfolio/${album.slug.current}`}
+                  className="block px-5 py-2 text-sm text-left text-black hover:bg-gray-100 transition select-none"
+                >
+                  {album.albumTitle}
+                </Link>
+              ))}
             </div>
           )}
         </div>
@@ -130,15 +134,15 @@ export default function Navbar() {
             </button>
             {showDropdown && (
               <div id="portfolio-menu-mobile" className="ml-4 mt-2 space-y-2">
-                <Link href="/portfolio/project-a" className="block cursor-default select-none">
-                  Project A
-                </Link>
-                <Link href="/portfolio/project-b" className="block cursor-default select-none">
-                  Project B
-                </Link>
-                <Link href="/portfolio/project-c" className="block cursor-default select-none">
-                  Project C
-                </Link>
+                {albums.map((album) => (
+                  <Link
+                    key={album._id}
+                    href={`/portfolio/${album.slug.current}`}
+                    className="block cursor-default select-none"
+                  >
+                    {album.albumTitle}
+                  </Link>
+                ))}
               </div>
             )}
           </div>
