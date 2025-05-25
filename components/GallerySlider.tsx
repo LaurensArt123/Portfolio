@@ -34,12 +34,15 @@ export default function GallerySlider({ images, albumTitle }: GallerySliderProps
 
   return (
     <>
-      {/* Thumbnails grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    <div className=''>
+
+
+    {/* Thumbnails grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4  mx-auto">
         {imageUrls.map((url, i) => (
           <div
             key={i}
-            className="relative w-full aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
+            className="relative w-full aspect-[4/3]   overflow-hidden cursor-pointer mx-auto" 
             onClick={() => openSlider(i)}
           >
             <Image
@@ -103,6 +106,10 @@ export default function GallerySlider({ images, albumTitle }: GallerySliderProps
           </button>
         </div>
       )}
+
+
+    </div>
+  
     </>
   )
 }

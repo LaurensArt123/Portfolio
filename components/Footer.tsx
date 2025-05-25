@@ -7,13 +7,13 @@ export default function Footer() {
         {/* Left side */}
         <div>
           <p className="font-bold sm:text-3xl">ARTIST NAME</p>
-          <p className="sm:text-3xl">artist@email.com</p>
+          <p className="sm:text-3xl">artist@gmail.com</p>
         </div>
 
         {/* Right side */}
         <div className="flex flex-col items-center">
           <a
-            href="https://instagram.com/yourprofile"
+            href="https://instagram.com/adriangphoto"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -21,7 +21,7 @@ export default function Footer() {
           >
             <FaInstagram color="black" size={36} />
           </a>
-          <p className="sm:text-xl mt-1">Website by VisionTech Studio</p>
+          <p className="sm:text-xl mt-1">WEBSITE BY VISIONTECH STUDIO</p>
         </div>
       </div>
     </footer>
