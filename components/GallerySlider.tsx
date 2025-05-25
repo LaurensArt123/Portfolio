@@ -49,7 +49,7 @@ export default function GallerySlider({ images, albumTitle }: GallerySliderProps
               src={url}
               alt={`${albumTitle} image ${i + 1}`}
               fill
-              className="object-cover"
+              className="object-cover mt-"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>
@@ -78,7 +78,7 @@ export default function GallerySlider({ images, albumTitle }: GallerySliderProps
               src={imageUrls[currentIndex]}
               alt={`${albumTitle} image ${currentIndex + 1}`}
               fill
-              className="object-contain"
+              className="object-contain  mt-18"
               priority
             />
           </div>
