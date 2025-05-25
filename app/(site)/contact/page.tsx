@@ -1,6 +1,14 @@
+"use client";
+
 import { AiOutlineMail, AiOutlinePhone, AiOutlineEnvironment } from "react-icons/ai";
+import { useRef, useState } from "react";
+import { toast } from "react-hot-toast";
+import { sendEmail } from "@/services/sendEmail";
 
 export default function ContactPage() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+
   return (
     <div className="mt-14">
       <main className="min-h-screen bg-white text-gray-900 px-4 sm:px-6 lg:px-8 py-16 flex justify-center">
@@ -14,45 +22,72 @@ export default function ContactPage() {
 
           <section className="mt-12 grid md:grid-cols-2 gap-10">
             {/* Contact Form */}
-            <form className="bg-gray-100 p-6 rounded-2xl shadow space-y-6">
+            <form
+              ref={formRef}
+              onSubmit={async (e) => {
+                e.preventDefault();
+                if (!formRef.current) return;
+
+                setLoading(true);
+                const formData = new FormData(formRef.current);
+                const { error } = await sendEmail(formData);
+
+                if (error) {
+                  toast.error(error);
+                } else {
+                  toast.success("Email sent successfully");
+                  formRef.current.reset();
+                }
+
+                setLoading(false);
+              }}
+              className="bg-gray-100 p-6 rounded-2xl shadow space-y-6"
+            >
               <div>
-                <label htmlFor="name" className="block mb-2 text-sm font-medium">
+                <label htmlFor="senderName" className="block mb-2 text-sm font-medium">
                   Your Name
                 </label>
                 <input
-                  id="name"
+                  id="senderName"
+                  name="senderName"
                   type="text"
                   className="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
                   placeholder="Jane Doe"
+                  required
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-medium">
+                <label htmlFor="senderEmail" className="block mb-2 text-sm font-medium">
                   Email
                 </label>
                 <input
-                  id="email"
+                  id="senderEmail"
+                  name="senderEmail"
                   type="email"
                   className="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
                   placeholder="you@example.com"
+                  required
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block mb-2 text-sm font-medium">
+                <label htmlFor="projectDetails" className="block mb-2 text-sm font-medium">
                   Message
                 </label>
                 <textarea
-                  id="message"
+                  id="projectDetails"
+                  name="projectDetails"
                   className="w-full rounded-xl border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
                   rows={5}
                   placeholder="Tell me what’s on your mind..."
+                  required
                 />
               </div>
               <button
                 type="submit"
+                disabled={loading}
                 className="w-full bg-black text-white py-3 rounded-xl hover:bg-gray-900 transition"
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </form>
 
@@ -62,7 +97,7 @@ export default function ContactPage() {
                 <AiOutlineMail className="text-2xl text-black" />
                 <div>
                   <h4 className="font-medium">Email</h4>
-                  <p className="text-gray-600">hello@adriangonzalezphoto.com</p>
+                  <p className="text-gray-600">laurenjonesweb@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -76,7 +111,7 @@ export default function ContactPage() {
                 <AiOutlineEnvironment className="text-2xl text-black" />
                 <div>
                   <h4 className="font-medium">Location</h4>
-                  <p className="text-gray-600">Based in Los Angeles, CA</p>
+                  <p className="text-gray-600">Based in Atlanta, GA</p>
                 </div>
               </div>
             </div>
