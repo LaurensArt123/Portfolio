@@ -78,7 +78,7 @@ export default function GallerySlider({ images, albumTitle }: GallerySliderProps
               src={imageUrls[currentIndex]}
               alt={`${albumTitle} image ${currentIndex + 1}`}
               fill
-              className="object-contain  mt-18"
+              className="object-contain  sm:mt-18"
               priority
             />
           </div>
