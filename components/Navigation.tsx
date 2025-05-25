@@ -57,12 +57,12 @@ export default function Navbar() {
         href="/"
         className="text-2xl sm:text-3xl p-3 sm:p-6 font-bold text-black cursor-pointer select-none uppercase tracking-wider"
       >
-        Artist Name <span className="text-red-500">Photography</span>
+       Lauren Jones <span className="text-red-500">Photography</span>
       </Link>
 
       {/* Desktop Menu */}
-      <div className="hidden md:flex items-center space-x-6 text-lg text-black">
-        <Link href="/" className="cursor-default select-none uppercase tracking-wider font-medium">
+      <div className="hidden md:flex items-center space-x-6 text-lg text-black cursor-pointer">
+        <Link href="/" className="cursor-default cursor-pointer select-none uppercase tracking-wider font-medium">
           Home
         </Link>
 
@@ -94,10 +94,10 @@ export default function Navbar() {
           )}
         </div>
 
-        <Link href="/about" className="cursor-default select-none uppercase tracking-wider font-medium">
+        <Link href="/about" className="cursor-default cursor-pointer select-none uppercase tracking-wider font-medium">
           About
         </Link>
-        <Link href="/contact" className="cursor-default select-none uppercase tracking-wider font-medium">
+        <Link href="/contact" className="cursor-default cursor-pointer select-none uppercase tracking-wider font-medium">
           Contact
         </Link>
       </div>
@@ -116,7 +116,7 @@ export default function Navbar() {
       {/* Mobile Dropdown Menu */}
       {mobileMenuOpen && (
         <div className="absolute top-full left-0 w-full bg-white shadow-md md:hidden flex flex-col items-start px-6 py-4 space-y-3 z-10 text-lg text-black">
-          <Link href="/" className="w-full block cursor-default select-none uppercase tracking-wider font-medium">
+          <Link href="/" className="w-full block cursor-pointer cursor-default select-none uppercase tracking-wider font-medium">
             Home
           </Link>
 
@@ -135,7 +135,7 @@ export default function Navbar() {
                   <Link
                     key={album._id}
                     href={`/albums/${album.slug.current}`}
-                    className="block cursor-default select-none uppercase tracking-wider text-sm"
+                    className="block cursor-default cursor-pointer select-none uppercase tracking-wider text-sm"
                   >
                     {album.albumTitle}
                   </Link>
@@ -144,10 +144,10 @@ export default function Navbar() {
             )}
           </div>
 
-          <Link href="/about" className="w-full block cursor-default select-none uppercase tracking-wider font-medium">
+          <Link href="/about" className="w-full block cursor-pointer cursor-default select-none uppercase tracking-wider font-medium">
             About
           </Link>
-          <Link href="/contact" className="w-full block cursor-default select-none uppercase tracking-wider font-medium">
+          <Link href="/contact" className="w-full block  cursor-pointer cursor-default select-none uppercase tracking-wider font-medium">
             Contact
           </Link>
         </div>

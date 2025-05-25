@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-full p-6 mx-auto flex justify-between items-center">
         {/* Left side */}
         <div>
-          <p className="font-bold sm:text-3xl">ARTIST NAME</p>
+          <p className="font-bold sm:text-3xl">Lauren Jones</p>
           <p className="sm:text-3xl">artist@gmail.com</p>
         </div>
 

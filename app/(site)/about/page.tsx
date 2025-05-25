@@ -19,7 +19,13 @@ export default function AboutMe() {
         <div className="w-full md:w-1/2">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">About Me</h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            I'm Adrian Gonzalez, a photographer with a passion for light, people, and honest moments. My work focuses on capturing what’s real — the subtle, fleeting expressions that define our humanity. Whether it’s a portrait or a spontaneous scene, I aim to preserve the feeling of the moment with care and intention.
+          Hi, I’m Lauren Jones — a photographer and visual artist with a passion for capturing artists in their element. Whether it's the raw energy of a live show or a quiet moment in the studio, I’m all about documenting the real, the unfiltered, and the in-between.
+
+I work with musicians, performers, and creatives of all kinds to create images that feel as alive as the moments themselves. From high-energy concerts to intimate portraits, I aim to tell your story through my lens in a way that’s bold, honest, and uniquely you.
+
+If you’re an artist looking to capture your work, your process, or your presence — let’s connect. I’m always open to collaborating with new people and bringing creative visions to life.
+
+Reach out and let’s make something unforgettable.
           </p>
         </div>
       </section>
