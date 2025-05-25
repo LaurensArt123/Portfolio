@@ -59,7 +59,7 @@ export default function GallerySlider({ images, albumTitle }: GallerySliderProps
       {/* Slider modal */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-white bg-opacity-80 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-white bg-opacity-90 flex items-center justify-center  "
           onClick={closeSlider}
         >
           <button
@@ -67,7 +67,7 @@ export default function GallerySlider({ images, albumTitle }: GallerySliderProps
               e.stopPropagation()
               prevImage()
             }}
-            className="absolute left-4 text-white text-4xl font-bold select-none"
+            className="absolute left-4 text-black text-4xl font-bold select-none"
             aria-label="Previous Image"
           >
             ‹
@@ -88,7 +88,7 @@ export default function GallerySlider({ images, albumTitle }: GallerySliderProps
               e.stopPropagation()
               nextImage()
             }}
-            className="absolute right-4 text-white text-4xl font-bold select-none"
+            className="absolute right-4 text-black text-4xl font-bold select-none"
             aria-label="Next Image"
           >
             ›
