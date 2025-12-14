@@ -57,7 +57,7 @@ export default function Navbar() {
         href="/"
         className="text-2xl sm:text-3xl p-3 sm:p-6 font-bold text-black cursor-pointer select-none uppercase tracking-wider"
       >
-       Lauren Jones <span className="text-red-500">Photography</span>
+       Lauren Jones <span className="text-red-500">Photography.</span>
       </Link>
 
       {/* Desktop Menu */}
