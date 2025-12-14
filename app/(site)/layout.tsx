@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lauren Jones Photography ",
+  title: "Lauren Jones Photography and Art ",
   description: "Artist Portfolio by Lauren Jones",
 };
 
